@@ -48,14 +48,13 @@ public:
 
 class Ingredient{
 private:
-    string name;
     vector<string> ingredients;
     vector<string> allergies;
 
 public:
-    Ingredient(string strArr[], string strArr1[]) {
-        ingredients = assignIng(strArr);
-        allergies = assignAll(strArr1);
+    Ingredient(string s1[], string s2[]) {
+        ingredients = assignIng(s1);
+        allergies = assignAll(s2);
     }
 
 
@@ -70,7 +69,7 @@ public:
         for(int i = 0; i<strArr1->length(); i++){
             allergies.push_back(strArr1[i]);
         }
-        return ingredients;
+        return allergies;
     }
 
     vector<string> getIngredients(){
