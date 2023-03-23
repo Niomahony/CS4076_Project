@@ -2,90 +2,67 @@
 #define RECIPE_INFO_H
 #include <iostream>
 #include <string>
-#include <vector>
+#include <QString>
+#include <QDir>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonValue>
+#include <QFile>
+#include <QDebug>
+#include <QByteArray>
 using namespace std;
 
 
 class Recipe {
 private:
-    string recipeArray[4];
-    string name, description, calories, ingCount; // ingredient count
+    QString name;
+    QStringList ingredients;
+    QString description;
+    QString method;
+    int calories;
+
 public:
-    Recipe(string s[]){
-        for(int i = 0; i<4; i++){
-            recipeArray[i] = s[i];
-        }
-        name = recipeArray[0];
-        description = recipeArray[1];
-        calories = recipeArray[2];
-        ingCount = recipeArray[3];
+    Recipe(const QString& name, const QStringList& ingredients, const QString& method, const QString& description, int calories ){
+        this->name = name;
+        this->calories = calories;
+        this->description = description;
+        this->method = method;
+        this->ingredients = ingredients;
     }
 
-    void print(){
-        for(int i = 0; i<4; i++){
-            cout << recipeArray[i] << " ";
-        }
-    }
-
-    ~Recipe(){
-    }
-
-    string getName(){
+    QString getName() const {
         return name;
     }
 
-    string getDescription(){
+    QStringList getIngredients() const {
+        return ingredients;
+    }
+
+    QString getDescription() const {
         return description;
     }
-    int getCals(){
-        return stoi(calories);
-    }
-    int getNoIng(){
-        return stoi(ingCount);
+
+    QString getMethod() const {
+        return method;
     }
 
+    int getCalories()  {
+        return calories;
+    }
+
+
+    void printRecipe(const Recipe& recipe) {
+        qDebug() << "Recipe:" << recipe.getName();
+        qDebug() << "Ingredients:";
+        QStringList ingredients = recipe.getIngredients();
+        for (int i = 0; i < ingredients.size(); i++) {
+            qDebug() << "- " << ingredients[i];
+        }
+        qDebug() << "Description:" << recipe.getDescription();
+        qDebug() << "Method:" << recipe.getMethod();
+    }
 };
 
-class Ingredient{
-private:
-    vector<string> ingredients;
-    vector<string> allergies;
 
-public:
-    Ingredient(string s1[], string s2[]) {
-        ingredients = assignIng(s1);
-        allergies = assignAll(s2);
-    }
-
-
-    vector<string> assignIng(string strArr[]){
-        for(int i = 0; i<strArr->length(); i++){
-            ingredients.push_back(strArr[i]);
-        }
-        return ingredients;
-    }
-
-    vector<string> assignAll(string strArr1[]){
-        for(int i = 0; i<strArr1->length(); i++){
-            allergies.push_back(strArr1[i]);
-        }
-        return allergies;
-    }
-
-    vector<string> getIngredients(){
-        return ingredients;
-    }
-
-    vector<string> getAllergies(){
-        return allergies;
-    }
-
-    void print(vector<string> v){
-        for(const auto& eles : v){
-            cout << "- " << eles << endl;
-        }
-    }
-
-};
 
 #endif // RECIPE_INFO_H
