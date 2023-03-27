@@ -21,12 +21,12 @@ private slots:
     void on_actionPizza_triggered();
     void on_actionPasta_triggered();
     void on_actionSalad_triggered();
-    void updateIngredientsList();
+    void updateRecipe();
 
 private:
     Ui::MainWindow *ui;
     Recipe *r;
-    QListWidget *listWidget = new QListWidget();
+    QListWidget *listWidget;
 };
 
 #endif // MAINWINDOW_H

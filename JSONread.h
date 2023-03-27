@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QDir>
 
+Recipe fileRecipe;
+
 Recipe readJsonFile(QString rName)
 {
     // Open the JSON file for reading
@@ -56,6 +58,8 @@ Recipe readJsonFile(QString rName)
     int p = recipeObj["preptime"].toInt();
     // Close the file
     jsonFile.close();
+
+    fileRecipe = (name, ing, m, d, c, p);
 
     return Recipe(name, ing, m, d, c, p);
 }

@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>779</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="nameLabel">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>0</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>100</y>
+      <x>30</x>
+      <y>110</y>
       <width>141</width>
       <height>20</height>
      </rect>
@@ -43,32 +43,90 @@
    <widget class="QTextEdit" name="descriptionEdit">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>30</y>
-      <width>401</width>
-      <height>161</height>
+      <x>20</x>
+      <y>40</y>
+      <width>301</width>
+      <height>61</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="methodEdit">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>210</y>
+      <x>340</x>
+      <y>40</y>
       <width>401</width>
-      <height>331</height>
+      <height>351</height>
      </rect>
     </property>
    </widget>
-   <widget class="QListWidget" name="listBox">
+   <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
       <x>25</x>
       <y>130</y>
       <width>301</width>
-      <height>411</height>
+      <height>261</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>400</y>
+      <width>211</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>Start timer</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTimeEdit" name="timeEdit"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>43</x>
+      <y>420</y>
+      <width>181</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="spinBox"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Calories</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="calAmountLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Portions:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -76,7 +134,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>779</width>
      <height>25</height>
     </rect>
    </property>
@@ -88,6 +146,12 @@
     <addaction name="actionPasta"/>
     <addaction name="actionSalad"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuRecipes"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
