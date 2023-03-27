@@ -30,7 +30,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>40</x>
       <y>100</y>
       <width>141</width>
       <height>20</height>
@@ -60,16 +60,15 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QListWidget" name="listBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>25</x>
       <y>130</y>
-      <width>311</width>
+      <width>301</width>
       <height>411</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -87,6 +86,7 @@
     </property>
     <addaction name="actionPizza"/>
     <addaction name="actionPasta"/>
+    <addaction name="actionSalad"/>
    </widget>
    <addaction name="menuRecipes"/>
   </widget>
@@ -99,6 +99,11 @@
   <action name="actionPasta">
    <property name="text">
     <string>Pasta</string>
+   </property>
+  </action>
+  <action name="actionSalad">
+   <property name="text">
+    <string>Salad</string>
    </property>
   </action>
  </widget>

@@ -17,6 +17,7 @@ Recipe readJsonFile(QString rName)
     QFile jsonFile(filePath);
     if (!jsonFile.open(QIODevice::ReadOnly)) {
         qWarning() << "Couldn't open JSON file";
+        return Recipe();
     }
 
     // Read the contents of the file into a QByteArray
@@ -52,11 +53,11 @@ Recipe readJsonFile(QString rName)
     QString m = recipeObj["method"].toString();
     QString d = recipeObj["description"].toString();
     int c = recipeObj["calories"].toInt();
-
+    int p = recipeObj["preptime"].toInt();
     // Close the file
     jsonFile.close();
 
-    return Recipe(name, ing, m, d, c);
+    return Recipe(name, ing, m, d, c, p);
 }
 
 #endif

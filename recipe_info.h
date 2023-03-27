@@ -1,16 +1,9 @@
 #ifndef RECIPE_INFO_H
 #define RECIPE_INFO_H
-#include <iostream>
-#include <string>
+
 #include <QString>
-#include <QDir>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonValue>
-#include <QFile>
 #include <QDebug>
-#include <QByteArray>
-#include <QCheckBox>
+
 using namespace std;
 
 
@@ -21,7 +14,7 @@ protected:
     QString description;
     QString method;
     int calories;
-
+    int prepTime;
 public:
     Recipe(){
         name = "";
@@ -29,13 +22,15 @@ public:
         description = "";
         method = "";
         ingredients = {""};
+        prepTime = 0;
     }
-    Recipe(QString& n, QStringList& i, QString& m, QString& d, int c){
+    Recipe(QString& n, QStringList& i, QString& m, QString& d, int c, int p){
         name = n;
         calories = c;
         description = d;
         method = m;
         ingredients = i;
+        prepTime = p;
     }
 
     QString getName() const {
@@ -58,6 +53,9 @@ public:
         return calories;
     }
 
+    int getPrepTime(){
+        return prepTime;
+    }
 
     void printRecipe(Recipe recipe) {
         qDebug() << "Recipe:" << recipe.getName();
