@@ -14,15 +14,62 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTreeView" name="treeView">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>256</width>
-      <height>192</height>
+      <x>20</x>
+      <y>10</y>
+      <width>221</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ingredients</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="descriptionEdit">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>30</y>
+      <width>401</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="methodEdit">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>210</y>
+      <width>401</width>
+      <height>331</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>311</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -34,17 +81,14 @@
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuSelect_Recipe">
+   <widget class="QMenu" name="menuRecipes">
     <property name="title">
-     <string>Select Recipe</string>
+     <string>Recipes</string>
     </property>
-    <addaction name="separator"/>
     <addaction name="actionPizza"/>
     <addaction name="actionPasta"/>
-    <addaction name="actionChocolate_Cake"/>
-    <addaction name="actionTea"/>
    </widget>
-   <addaction name="menuSelect_Recipe"/>
+   <addaction name="menuRecipes"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionPizza">
@@ -54,20 +98,27 @@
   </action>
   <action name="actionPasta">
    <property name="text">
-    <string>Spaghetti Carbonara</string>
-   </property>
-  </action>
-  <action name="actionChocolate_Cake">
-   <property name="text">
-    <string>Chocolate Cake</string>
-   </property>
-  </action>
-  <action name="actionTea">
-   <property name="text">
-    <string>Tea</string>
+    <string>Pasta</string>
    </property>
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionPizza</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

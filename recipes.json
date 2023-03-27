@@ -1,0 +1,44 @@
+{
+  "Pizza": {
+    "name": "Pizza",
+    "ingredients": [
+      "Pizza dough",
+      "Tomato sauce",
+      "Mozzarella cheese",
+      "Pepperoni",
+      "Mushrooms",
+      "Green bell pepper"
+    ],
+    "method": "1. Preheat the oven to 425°F (220°C). \n2. Roll out the pizza dough and spread the tomato sauce over it. \n3. Add the mozzarella cheese and your desired toppings. \n4. Bake for 12-15 minutes, or until the crust is golden brown.",
+    "description": "A classic pizza with all your favorite toppings!",
+    "calories": 900
+  },
+  "Pasta": {
+    "name": "Pasta",
+    "ingredients": [
+      "Pasta",
+      "Tomato sauce",
+      "Ground beef",
+      "Onion",
+      "Garlic",
+      "Olive oil"
+    ],
+    "method": "1. Cook the pasta according to package instructions. \n2. Meanwhile, heat the olive oil in a pan over medium heat. \n3. Add the onion and garlic and cook until softened. \n4. Add the ground beef and cook until browned. \n5. Add the tomato sauce and simmer for 10-15 minutes. \n6. Serve the sauce over the cooked pasta.",
+    "description": "A hearty pasta dish with a meaty tomato sauce.",
+    "calories": 750
+  },
+  "Salad": {
+    "name": "Salad",
+    "ingredients": [
+      "Lettuce",
+      "Tomato",
+      "Cucumber",
+      "Carrot",
+      "Red onion",
+      "Feta cheese"
+    ],
+    "method": "1. Wash and chop the lettuce, tomato, cucumber, and carrot. \n2. Toss the vegetables together in a bowl. \n3. Top with crumbled feta cheese. \n4. Drizzle with your favorite dressing.",
+    "description": "A simple and refreshing salad.",
+    "calories": 150
+  }
+}

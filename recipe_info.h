@@ -10,11 +10,12 @@
 #include <QFile>
 #include <QDebug>
 #include <QByteArray>
+#include <QCheckBox>
 using namespace std;
 
 
 class Recipe {
-private:
+protected:
     QString name;
     QStringList ingredients;
     QString description;
@@ -22,12 +23,19 @@ private:
     int calories;
 
 public:
-    Recipe(const QString& name, const QStringList& ingredients, const QString& method, const QString& description, int calories ){
-        this->name = name;
-        this->calories = calories;
-        this->description = description;
-        this->method = method;
-        this->ingredients = ingredients;
+    Recipe(){
+        name = "";
+        calories = 0;
+        description = "";
+        method = "";
+        ingredients = {""};
+    }
+    Recipe(QString& n, QStringList& i, QString& m, QString& d, int c){
+        name = n;
+        calories = c;
+        description = d;
+        method = m;
+        ingredients = i;
     }
 
     QString getName() const {
@@ -51,7 +59,7 @@ public:
     }
 
 
-    void printRecipe(const Recipe& recipe) {
+    void printRecipe(Recipe recipe) {
         qDebug() << "Recipe:" << recipe.getName();
         qDebug() << "Ingredients:";
         QStringList ingredients = recipe.getIngredients();
@@ -60,9 +68,8 @@ public:
         }
         qDebug() << "Description:" << recipe.getDescription();
         qDebug() << "Method:" << recipe.getMethod();
+        qDebug() << "Calories:" << recipe.getCalories();
     }
 };
-
-
 
 #endif // RECIPE_INFO_H
