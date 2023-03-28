@@ -8,13 +8,11 @@
 #include <QFile>
 #include <QDebug>
 #include <QDir>
-
-Recipe fileRecipe;
+#include <istream>
 
 Recipe readJsonFile(QString rName)
 {
     // Open the JSON file for reading
-    QString filePath = QDir::currentPath() + "/recipes.json";
     qDebug() << filePath;
     QFile jsonFile(filePath);
     if (!jsonFile.open(QIODevice::ReadOnly)) {
@@ -36,32 +34,67 @@ Recipe readJsonFile(QString rName)
 
     // Get the root object of the JSON document
     QJsonObject jsonObj = jsonDoc.object();
-
-    // Access values in the JSON object
-    if (!jsonObj.contains(rName)) {
-        qWarning() << "Recipe not found";
-        return Recipe();
-    }
-    QJsonObject recipeObj = jsonObj[rName].toObject();
-    QString name = recipeObj["name"].toString();
+    QString name = jsonObj.value("name").toString();
 
     // Access values in a JSON array
-    QJsonArray ingredients = recipeObj["ingredients"].toArray();
+    QJsonArray ingredients = jsonObj.value("ingredients").toArray();
     QStringList ing;
     for(int i = 0; i < ingredients.size(); i++){
         ing.append(ingredients[i].toString());
     }
 
-    QString m = recipeObj["method"].toString();
-    QString d = recipeObj["description"].toString();
-    int c = recipeObj["calories"].toInt();
-    int p = recipeObj["preptime"].toInt();
+    QString m = jsonObj.value("method").toString();
+    QString d = jsonObj.value("description").toString();
+    int c = jsonObj.value("calories").toInt();
+    int p = jsonObj.value("preptime").toInt();
     // Close the file
     jsonFile.close();
 
-    fileRecipe = (name, ing, m, d, c, p);
 
     return Recipe(name, ing, m, d, c, p);
 }
 
+
+//void saveRecipe(){
+
+//        // Open the existing JSON file for reading
+//      QString filePath = QDir::currentPath() + "/recipes.json";
+//        QFile file(filePath);
+
+//        // Read the file contents into a QJsonDocument
+//        QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+
+//        // Get the root object
+//        QJsonObject root = doc.object();
+
+//        // Add new data to the root object
+//        QJsonObject newObject;
+//        newObject.insert("name", "Soup");
+//        QJsonArray ingredientsArray;
+//        ingredientsArray.append("Chicken broth");
+//        ingredientsArray.append("Vegetables");
+//        ingredientsArray.append("Noodles");
+//        newObject.insert("ingredients", ingredientsArray);
+//        newObject.insert("method", "1. Heat the chicken broth in a pot over medium heat. \n2. Add the vegetables and cook until tender. \n3. Add the noodles and simmer for 8-10 minutes. \n4. Serve hot.");
+//        newObject.insert("description", "A warm and comforting soup.");
+//        newObject.insert("calories", 300);
+
+//        root.insert("Soup", newObject);
+
+//        // Close the file
+//        file.close();
+
+//        // Open the file for writing
+//        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+
+//        // Write the updated data to the file in the same format
+//        QJsonDocument newDoc;
+//        newDoc(root);
+//        QTextStream out(&file);
+//        out << newDoc.toJson(QJsonDocument::Indented);
+
+//        // Close the file
+//        file.close();
+
+//}
 #endif
